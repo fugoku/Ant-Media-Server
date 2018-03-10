@@ -59,7 +59,7 @@ public class CameraScheduler implements ICameraStream {
 			return false;
 		}
 
-		if (camera == null || camera.getRtspUrl() == null) {
+		if (camera == null || camera.getstreamUrl() == null) {
 			logger.info("camera is null");
 			return false;
 		}
@@ -69,9 +69,9 @@ public class CameraScheduler implements ICameraStream {
 		av_dict_set(optionsDictionary, "rtsp_transport", "tcp", 0);
 		int ret;
 
-		logger.info("camera rtsp url" + camera.getRtspUrl());
+		logger.info("camera rtsp url" + camera.getstreamUrl());
 
-		if ((ret = avformat_open_input(inputFormatContext, camera.getRtspUrl(), null, optionsDictionary)) < 0) {
+		if ((ret = avformat_open_input(inputFormatContext, camera.getstreamUrl(), null, optionsDictionary)) < 0) {
 
 			byte[] data = new byte[1024];
 			avutil.av_strerror(ret, data, data.length);
