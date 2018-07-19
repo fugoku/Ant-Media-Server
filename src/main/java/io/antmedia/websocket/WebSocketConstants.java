@@ -1,7 +1,9 @@
 package io.antmedia.websocket;
 
-public interface IWebSocketListener {
+public class WebSocketConstants {
 	
+	private WebSocketConstants() {
+	}
 	
 	public static final String ATTR_STREAM_NAME = "ATTR_STREAM_NAME";
 
@@ -152,5 +154,20 @@ public interface IWebSocketListener {
 	 * audio field that defines if there is audio
 	 */
 	public static final String AUDIO = "audio";
+
+	/**
+	 * Stream list in the room
+	 */
+	public static final String STREAMS_IN_ROOM = "streams";
+
+	/**
+	 * Error definition it is send when stream id is not specified in the message
+	 */
+	public static final String NO_STREAM_ID_SPECIFIED = "noStreamNameSpecified";
+
+	/**
+	 * Error definition it is send when local description is not set successfully
+	 */
+	public static final String NOT_SET_LOCAL_DESCRIPTION = "notSetLocalDescription";
 
 }
