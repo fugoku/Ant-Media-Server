@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -44,6 +45,7 @@ public class HlsStatisticsFilterTest {
 		hlsStatisticsFilter = new HlsStatisticsFilter();
 	}
 	
+	@After
 	public void after() {
 		hlsStatisticsFilter = null;
 	}
