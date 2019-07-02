@@ -1289,12 +1289,12 @@ public class RestServiceUnitTest {
 		assertNull(restServiceReal.createConferenceRoom(room));
 
 		//define roomName
-		room.setRoomName("roomName");
+		room.setRoomId("roomName");
 
 		//should not be null because room is saved to database and created room is returned
 		assertNotNull(restServiceReal.createConferenceRoom(room));
 
-		room = restServiceReal.getDataStore().getConferenceRoom(room.getRoomName());
+		room = restServiceReal.getDataStore().getConferenceRoom(room.getRoomId());
 		
 		//this should not be null, because although start date is not defined, service create it as now
 		assertNotNull(room.getStartDate());
@@ -1309,16 +1309,16 @@ public class RestServiceUnitTest {
 		//should not be null because room is saved to database and edited room is returned
 		assertNotNull(restServiceReal.editConferenceRoom(room));
 		
-		room = restServiceReal.getDataStore().getConferenceRoom(room.getRoomName());
+		room = restServiceReal.getDataStore().getConferenceRoom(room.getRoomId());
 		
 		//check start date
 		assertEquals(now, room.getStartDate());
 
 		//delete room
-		assertTrue(restServiceReal.deleteConferenceRoom(room.getRoomName()));
+		assertTrue(restServiceReal.deleteConferenceRoom(room.getRoomId()));
 		
 		//check that room does not exist  in db 
-		assertNull(restServiceReal.getDataStore().getConferenceRoom(room.getRoomName()));
+		assertNull(restServiceReal.getDataStore().getConferenceRoom(room.getRoomId()));
 
 		
 	}
