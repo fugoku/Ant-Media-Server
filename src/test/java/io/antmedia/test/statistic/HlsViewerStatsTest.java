@@ -143,11 +143,11 @@ public class HlsViewerStatsTest {
 		when(settings.getHlsTime()).thenReturn("");
 		
 		int defaultValue = HlsViewerStats.DEFAULT_TIME_PERIOD_FOR_VIEWER_COUNT;
-		assertEquals(defaultValue, HlsViewerStats.getTimeoutMSFromSettings(settings, defaultValue));
+		assertEquals(defaultValue, HlsViewerStats.getTimeoutMSFromSettings(settings, defaultValue, HlsViewerStats.HLS_TYPE));
 		
 		when(settings.getHlsTime()).thenReturn("2");
 		
-		assertEquals(20000, HlsViewerStats.getTimeoutMSFromSettings(settings, defaultValue));
+		assertEquals(20000, HlsViewerStats.getTimeoutMSFromSettings(settings, defaultValue, HlsViewerStats.HLS_TYPE));
 		
 	}
 	
