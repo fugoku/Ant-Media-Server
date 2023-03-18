@@ -1,0 +1,24 @@
+version: '3'
+services:
+  antmedia:
+    image: antmediaio/antmedia:latest
+    container_name: antmedia
+    ports:
+      - 5080:5080
+      - 1935:1935
+      - 5554:5554
+      - 8081:8081
+      - 5000-65000:5000-65000/udp
+    environment:
+      - TZ=UTC
+      - RED5_OPTS=-Xmx4g
+    volumes:
+      - antmedia-app:/usr/local/antmedia/webapps/
+      - antmedia-logs:/usr/local/antmedia/log/
+      - antmedia-data:/usr/local/antmedia/data/
+    restart: always
+
+volumes:
+  antmedia-app:
+  antmedia-logs:
+  antmedia-data:
